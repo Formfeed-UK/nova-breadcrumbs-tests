@@ -1,0 +1,12 @@
+{
+    "config": {},
+    "repositories": [
+        {
+            "type": "path",
+            "url": "./submodules/*/",
+            "options": {
+                "symlink": true
+            }
+        }
+    ]
+}
