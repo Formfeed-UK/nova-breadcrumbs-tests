@@ -29,7 +29,7 @@
     "forwardPorts": [80, 5432],
 
     // Use 'postCreateCommand' to run commands after the container is created.
-	"postCreateCommand": "./.devcontainer/postCreateScript.sh",
+	"postCreateCommand": "bash ./.devcontainer/postCreateScript.sh",
 	"remoteUser": "root",
     "portsAttributes": {
 		"80": {
