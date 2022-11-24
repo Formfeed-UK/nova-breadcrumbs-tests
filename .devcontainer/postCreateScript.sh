@@ -15,6 +15,7 @@ composer install
 php artisan key:generate
 php artisan storage:link
 php artisan dusk:install
+php artisan nova:install
 
 php artisan migrate
 yarn install
