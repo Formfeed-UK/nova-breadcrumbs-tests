@@ -14,6 +14,7 @@ php artisan storage:link
 php artisan dusk:install
 php artisan nova:install
 
-php artisan migrate
+php artisan migrate:fresh --seed
+
 yarn install
 yarn run development

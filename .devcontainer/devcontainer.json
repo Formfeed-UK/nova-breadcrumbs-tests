@@ -20,7 +20,8 @@
         "bradlc.vscode-tailwindcss",
         "bmewburn.vscode-intelephense-client",
         "github.copilot",
-        "namesmt.blade-php"
+        "namesmt.blade-php",
+        "robertostermann.phpunit-extended-test-explorer"
 	],
     "settings": {
         "#terminal.integrated.shell.linux": "/bin/bash"

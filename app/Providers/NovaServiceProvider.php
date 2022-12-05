@@ -2,7 +2,10 @@
 
 namespace App\Providers;
 
+use Formfeed\Breadcrumbs\Breadcrumb;
+use Formfeed\Breadcrumbs\Breadcrumbs;
 use Illuminate\Support\Facades\Gate;
+use Laravel\Nova\Http\Requests\NovaRequest;
 use Laravel\Nova\Nova;
 use Laravel\Nova\NovaApplicationServiceProvider;
 
@@ -16,6 +19,8 @@ class NovaServiceProvider extends NovaApplicationServiceProvider
     public function boot()
     {
         parent::boot();
+
+        Nova::withBreadcrumbs(true);
     }
 
     /**
@@ -56,6 +61,7 @@ class NovaServiceProvider extends NovaApplicationServiceProvider
     {
         return [
             new \App\Nova\Dashboards\Main,
+            new \App\Nova\Dashboards\BreadcrumbMethod,
         ];
     }
 

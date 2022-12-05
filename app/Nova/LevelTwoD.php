@@ -2,22 +2,20 @@
 
 namespace App\Nova;
 
+use Formfeed\Breadcrumbs\Breadcrumb;
+use Formfeed\Breadcrumbs\Breadcrumbs;
 use Illuminate\Http\Request;
-use Illuminate\Validation\Rules;
-use Laravel\Nova\Fields\Gravatar;
-use Laravel\Nova\Fields\ID;
-use Laravel\Nova\Fields\Password;
-use Laravel\Nova\Fields\Text;
+use Laravel\Nova\Fields;
 use Laravel\Nova\Http\Requests\NovaRequest;
 
-class User extends Resource
+class LevelTwoD extends Resource
 {
     /**
      * The model the resource corresponds to.
      *
-     * @var class-string<\App\Models\User>
+     * @var class-string<\App\Models\LevelTwoD>
      */
-    public static $model = \App\Models\User::class;
+    public static $model = \App\Models\LevelTwoD::class;
 
     /**
      * The single value that should be used to represent the resource when being displayed.
@@ -26,13 +24,18 @@ class User extends Resource
      */
     public static $title = 'name';
 
+    public function breadcrumbs(NovaRequest $request, Breadcrumbs $breadcrumbs, $breadcrumbArray) {
+        $breadcrumbs->items = [];
+        return [Breadcrumb::make(__("Breadcrumb Addition"), null)];
+    }
+
     /**
      * The columns that should be searched.
      *
      * @var array
      */
     public static $search = [
-        'id', 'name', 'email',
+        'id',
     ];
 
     /**
@@ -44,24 +47,10 @@ class User extends Resource
     public function fields(NovaRequest $request)
     {
         return [
-            ID::make()->sortable(),
-
-            Gravatar::make()->maxWidth(50),
-
-            Text::make('Name')
-                ->sortable()
-                ->rules('required', 'max:255'),
-
-            Text::make('Email')
-                ->sortable()
-                ->rules('required', 'email', 'max:254')
-                ->creationRules('unique:users,email')
-                ->updateRules('unique:users,email,{{resourceId}}'),
-
-            Password::make('Password')
-                ->onlyOnForms()
-                ->creationRules('required', Rules\Password::defaults())
-                ->updateRules('nullable', Rules\Password::defaults()),
+            Fields\ID::make()->sortable(),
+            Fields\Text::make("Name"),
+            Fields\BelongsTo::make("Level One", "levelOne", LevelOne::class),
+            Fields\HasMany::make("Level Three C", "levelThreeC", LevelThreeC::class),
         ];
     }
 
