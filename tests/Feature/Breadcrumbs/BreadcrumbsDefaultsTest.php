@@ -67,10 +67,7 @@ class BreadcrumbsDefaultsTest extends TestCase
 
         $response = $this->get('/nova/dashboards/main');
         $response->assertInertia(function (Assert $page) {
-            $page->has('breadcrumbs', 2, function (Assert $breadcrumbs) {
-                $breadcrumbs->where('name', 'Dashboards');
-                $breadcrumbs->etc();
-            });
+            $page->missing('breadcrumbs');
         });
     }
 

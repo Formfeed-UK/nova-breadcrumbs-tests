@@ -15,6 +15,10 @@ class LevelThreeD2 extends Model
         return $this->levelTwoB();
     }
 
+    public function parent2() {
+        return $this->levelTwoA();
+    }
+
     public function levelTwoA()
     {
         return $this->belongsTo(LevelTwoA::class);

@@ -49,7 +49,7 @@ class BreadcrumbsParentTest extends TestCase
 
     public function test_parent_method_on_model_with_configurable_method_name() {
 
-        config()->set('breadcrumbs.parentMethod', 'parent2');
+        config()->set('nova-breadcrumbs.parentMethod', 'parent2');
 
         \App\Nova\LevelThreeD::$model = \App\Models\LevelThreeD2::class;
 
