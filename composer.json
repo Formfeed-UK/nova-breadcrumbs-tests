@@ -18,7 +18,7 @@
         "laravel/pint": "^1.0",
         "laravel/sail": "^1.0.1",
         "laravel/nova": "^4.0",
-        "formfeed-uk/nova-breadcrumbs": "v2.x-dev",
+        "formfeed-uk/nova-breadcrumbs": "v3.x-dev",
         "mockery/mockery": "^1.4.4",
         "nunomaduro/collision": "^6.1",
         "phpunit/phpunit": "^9.5.10",
